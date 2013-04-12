@@ -1,4 +1,13 @@
 SampleApp::Application.routes.draw do
+  resources :projects
+
+
+  resources :project_tags
+
+
+  resources :tags
+
+
   get "sessions/new"
 
   resources :users do

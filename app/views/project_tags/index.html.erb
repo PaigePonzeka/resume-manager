@@ -1,0 +1,25 @@
+<h1>Listing project_tags</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Tag</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project_tags.each do |project_tag| %>
+  <tr>
+    <td><%= project_tag.project_id %></td>
+    <td><%= project_tag.tag_id %></td>
+    <td><%= link_to 'Show', project_tag %></td>
+    <td><%= link_to 'Edit', edit_project_tag_path(project_tag) %></td>
+    <td><%= link_to 'Destroy', project_tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project tag', new_project_tag_path %>
