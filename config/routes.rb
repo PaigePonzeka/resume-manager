@@ -1,10 +1,4 @@
 SampleApp::Application.routes.draw do
-  resources :project_images
-
-
-  resources :images
-
-
   resources :projects
 
 
