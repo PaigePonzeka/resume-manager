@@ -25,8 +25,9 @@
   </div>
   <div class="field">
     <%= f.label :tag_ids %> <br />
-    <%= f.select(:tag_ids, @tag_select_data, {}, {:multiple => true, :size => 5, :class => "chosen"}) %>
-  </div>
+    <%= f.select :tag_ids, Tag.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+
+    </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -35,8 +35,6 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
-
-
     @tag_select_data = Tag.all.collect{|p| [p.name, p.id]}
   end
 
