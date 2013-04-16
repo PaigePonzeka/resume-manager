@@ -1,0 +1,27 @@
+<h1>Listing project_screenshots</h1>
+
+<table>
+  <tr>
+    <th>Project</th>
+    <th>Url</th>
+    <th>Caption</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @project_screenshots.each do |project_screenshot| %>
+  <tr>
+    <td><%= project_screenshot.project_id %></td>
+    <td><%= project_screenshot.url %></td>
+    <td><%= project_screenshot.caption %></td>
+    <td><%= link_to 'Show', project_screenshot %></td>
+    <td><%= link_to 'Edit', edit_project_screenshot_path(project_screenshot) %></td>
+    <td><%= link_to 'Destroy', project_screenshot, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project screenshot', new_project_screenshot_path %>

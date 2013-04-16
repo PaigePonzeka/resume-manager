@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Project:</b>
+  <%= @project_screenshot.project_id %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @project_screenshot.url %>
+</p>
+
+<p>
+  <b>Caption:</b>
+  <%= @project_screenshot.caption %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_screenshot_path(@project_screenshot) %> |
+<%= link_to 'Back', project_screenshots_path %>

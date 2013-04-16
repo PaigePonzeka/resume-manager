@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id, :disabled => true  %>
+  </div>
+  <div class="field">
     <%= f.label :icon %><br />
     <%= f.text_field :icon %>
   </div>
@@ -28,6 +32,30 @@
     <%= f.select :tag_ids, Tag.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
 
     </div>
+  <ul class="field">
+    <%= f.fields_for :project_screenshots do |ps| %>
+      <li>
+        <div class="field">
+          <%= ps.label :url %>
+          <%= ps.text_field :url %>
+        </div>
+
+        <div class="field">
+          <%= ps.label :caption %>
+          <%= ps.text_area :caption %>
+        </div>
+
+         <div class="field">
+           <% if ps.object.persisted? %>
+              <%= ps.check_box :_destroy %>
+              <%= ps.label :_destroy, "Destroy" %>
+            <% end %>
+        </div>
+
+        </li>
+
+    <% end %>
+  </ul>
   <div class="actions">
     <%= f.submit %>
   </div>

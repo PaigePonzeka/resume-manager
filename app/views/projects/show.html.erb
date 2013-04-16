@@ -17,7 +17,16 @@
 
 <p>
   <b>Tags:</b>
-  <%= @project.tags %>
+  <% @project.tags.each do |tag| %>
+  	<%= tag.name %> 
+  <%end%>
+</p>
+
+<p>
+  <b>Screenshots:</b>
+  <% @project.project_screenshots.each do |tag| %>
+  	<%= tag.url %> 
+  <%end%>
 </p>
 
 

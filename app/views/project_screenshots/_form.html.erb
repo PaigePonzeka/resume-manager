@@ -1,0 +1,29 @@
+<%= form_for(@project_screenshot) do |f| %>
+  <% if @project_screenshot.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@project_screenshot.errors.count, "error") %> prohibited this project_screenshot from being saved:</h2>
+
+      <ul>
+      <% @project_screenshot.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :project_id %><br />
+    <%= f.number_field :project_id %>
+  </div>
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :caption %><br />
+    <%= f.text_area :caption %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
