@@ -30,6 +30,9 @@ class User < ActiveRecord::Base
                                           
   #before the user attribute is saved
    before_save :encrypt_password
+
+  
+
    # Return true if the user's password matches the submitted password.
      def has_password?(submitted_password)
        # Compare encrypted_password with the encrypted version of
@@ -54,7 +57,7 @@ class User < ActiveRecord::Base
    private
 
      def encrypt_password
-       user.salt = make_salt if new_record?
+       self.salt = make_salt if new_record?
        self.encrypted_password = encrypt(password)
      end
 
