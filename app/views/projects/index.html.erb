@@ -1,7 +1,7 @@
 <%if signed_in?%>
-  <h1>Listing projects</h1>
+  <h1>Projects</h1>
 
-  <table>
+  <table class="table">
     <tr>
       <th>Icon</th>
       <th>Title</th>
@@ -9,6 +9,7 @@
       <th>Tags</th>
       <th></th>
       <th></th>
+      <th> </th>
     </tr>
 
   <% @projects.each do |project| %>
@@ -21,14 +22,14 @@
         <%= tag.name %>
         <% end %>
       </td>
-      <td><%= link_to 'Show', project %></td>
-      <td><%= link_to 'Edit', edit_project_path(project) %></td>
-      <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Show', project%></td>
+      <td><%= link_to 'Edit', edit_project_path(project), :class => "icon icon-pencil"%></td>
+      <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' }, :class => "icon icon-trash" %></td>
     </tr>
   <% end %>
   </table>
 
   <br />
 
-  <%= link_to 'New Project', new_project_path %>
+  <%= link_to 'New Project', new_project_path, :class => "btn btn-primary" %>
 <%end%>

@@ -1,4 +1,4 @@
-<%= form_for(@project) do |f| %>
+<%= form_for(@project,  :html => { :class => "form-horizontal"}) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
@@ -11,28 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :id %><br />
-    <%= f.text_field :id, :disabled => true  %>
+  <div class="control-group">
+    <%= f.label :id, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :id, :disabled => true, :class => "readonly" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :icon %><br />
-    <%= f.text_field :icon %>
+  <div class="control-group">
+    <%= f.label :icon, :class => "control-label"%>
+    <div class="controls">
+      <%= f.text_field :icon %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <div class="control-group">
+    <%= f.label :title, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :title %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+  <div class="control-group">
+    <%= f.label :description, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_area :description, :rows=>5, :cols=>40 %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :tag_ids %> <br />
-    <%= f.select :tag_ids, Tag.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+  <div class="control-group">
+    <%= f.label :tag_ids, :class => "control-label" %>
+    <div class="controls">
+      <%= f.select :tag_ids, Tag.all.collect {|x| [x.name, x.id]}, {}, :multiple => true %>
+    </div>
 
     </div>
-  <ul class="field">
+  <ul class="control-group">
     <%= f.fields_for :project_screenshots do |ps| %>
       <li>
         <div class="field">
@@ -42,7 +52,7 @@
 
         <div class="field">
           <%= ps.label :caption %>
-          <%= ps.text_area :caption %>
+          <%= ps.text_area :caption%>
         </div>
 
          <div class="field">

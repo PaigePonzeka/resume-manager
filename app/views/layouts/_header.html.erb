@@ -1,8 +1,7 @@
 <header>
-  <nav class="round">
-    <ul>
-      <% if signed_in? %>
-        <li><%= link_to "Home", 'projects/' %></li>
+  <ul class="nav nav-tabs">
+     <% if signed_in? %>
+        <li><%= link_to "Home", '/projects/' %></li>
       <% else %>
         <li><%= link_to "Home", root_path %></li>
       <% end %>
@@ -14,6 +13,5 @@
       <% if signed_in? %>
       <li><%= link_to "Sign out", signout_path, :method => :delete %></li>
       <% end %>
-    </ul>
-  </nav>
+  </ul>
 </header>

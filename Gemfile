@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 
 
 gem 'rails', '3.2.13'
-gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 #gem 'will_paginate', '3.0.pre2'
@@ -16,7 +15,9 @@ end
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  gem 'compass-rails'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'bootstrap-sass'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
