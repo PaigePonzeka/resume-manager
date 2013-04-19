@@ -1,4 +1,4 @@
-<%= form_for(@project_screenshot) do |f| %>
+<%= form_for(@project_screenshot,  :html => { :class => "form-horizontal"}) do |f| %>
   <% if @project_screenshot.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@project_screenshot.errors.count, "error") %> prohibited this project_screenshot from being saved:</h2>
@@ -11,19 +11,35 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :project_id %><br />
-    <%= f.number_field :project_id %>
+  <div class="control-group">
+    <%= f.label :id, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :id, :disabled => true, :class => "readonly" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :url %><br />
-    <%= f.text_field :url %>
+  <p class="screenshot-container">
+    <img src=""/>
+  </p>
+  <div class="control-group">
+    <%= f.label :url, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_field :url, :class=> "screenshot-url" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :caption %><br />
-    <%= f.text_area :caption %>
+  <div class="control-group">
+    <%= f.label :project_id, :class => "control-label" %>
+    <div class="controls">
+      <%= f.select(:project_id, Project.all.collect {|x| [x.title, x.id]})%>
+    </div>
   </div>
-  <div class="actions">
+  
+  <div class="control-group">
+    <%= f.label :caption, :class => "control-label" %>
+    <div class="controls">
+      <%= f.text_area :caption %>
+    </div>
+  </div>
+  <div class="actions pull-right">
     <%= f.submit %>
   </div>
 <% end %>

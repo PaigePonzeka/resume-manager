@@ -1,3 +1,4 @@
+<%if signed_in?%>
 <h1>Listing project_screenshots</h1>
 
 <table>
@@ -25,3 +26,4 @@
 <br />
 
 <%= link_to 'New Project screenshot', new_project_screenshot_path %>
+<%end%>

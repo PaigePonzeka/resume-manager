@@ -1,8 +1,10 @@
 <%if signed_in?%>
-<h1>Editing project</h1>
+<div id="project">
+	<h1>Editing project</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+	<%= link_to 'Show', @project %> |
+	<%= link_to 'Back', projects_path %>
+</div>
 <%end%>

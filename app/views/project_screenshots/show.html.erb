@@ -1,3 +1,4 @@
+<%if signed_in?%>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -18,3 +19,4 @@
 
 <%= link_to 'Edit', edit_project_screenshot_path(@project_screenshot) %> |
 <%= link_to 'Back', project_screenshots_path %>
+<%end%>

@@ -231,3 +231,21 @@ form.new_micropost {
 input[type="submit"]{
   @extend .btn-primary;
 }
+
+section, .actions{
+  @include clearfix;
+}
+
+input, textarea {
+    width: 400px;
+  }
+  textarea{
+    height: 100px;
+  }
+
+  .chzn-container-multi .chzn-choices {
+    width: 415px;
+  }
+  .chzn-container .chzn-drop{
+    width: 415px;
+  }

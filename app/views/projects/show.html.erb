@@ -1,33 +1,35 @@
 
-<p id="notice"><%= notice %></p>
-
 <p>
-  <b>Icon:</b>
+  <strong>Icon:</strong>
   <%= @project.icon %>
 </p>
 
 <p>
-  <b>Title:</b>
+  <strong>Title:</strong>
   <%= @project.title %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <strong>Description:</strong>
   <%= @project.description %>
 </p>
 
 <p>
-  <b>Tags:</b>
+  <strong>Tags:</strong>
+  <ul>
   <% @project.tags.each do |tag| %>
-  	<%= tag.name %> 
+  	<li><%= tag.name %></li>
   <%end%>
+  </ul>
 </p>
 
 <p>
-  <b>Screenshots:</b>
+  <strong>Screenshots:</strong>
+  <ul>
   <% @project.project_screenshots.each do |tag| %>
-  	<%= tag.url %> 
+  	<li><%= tag.url %> </li>
   <%end%>
+  </ul>
 </p>
 
 <%if signed_in?%>

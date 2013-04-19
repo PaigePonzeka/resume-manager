@@ -1,6 +1,12 @@
 <%if signed_in?%>
+  <div id="project">
   <h1>Projects</h1>
-  <%= link_to 'Add Tag', new_tag_path, :class => "btn pull-right"%> </li>
+
+  <div class="btn-group pull-right">
+    <%= link_to 'Add Tag', new_tag_path, :class => "btn btn-info"%>
+    <%= link_to 'Add Screenshot', new_project_screenshot_path, :class => "btn btn-inverse" %>
+  </div>
+  
   <table class="table">
     <tr>
       <th>Icon</th>
@@ -31,5 +37,6 @@
 
   <br />
 
-  <%= link_to 'New Project', new_project_path, :class => "btn btn-primary" %>
+  <%= link_to 'New Project', new_project_path, :class => "btn btn-primary pull-right" %>
+</div>
 <%end%>

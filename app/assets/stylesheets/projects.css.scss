@@ -2,31 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#project{
+	.projects {
+		ul, li{
+			list-style-type: none;
+		}
+	}
+	.project-screenshot-container{
+		text-align: center;
 
-.projects {
-	ul, li{
-		list-style-type: none;
+		img{
+			width: 250px;
+			height: 250px;
+		}
 	}
-}
-.project-screenshot-container{
-	text-align: center;
+	.screenshot{
+		border-bottom: 1px dotted #444;
+		margin: 10px 0;
+		padding: 10px 0;
+		&:first-child{
+			border-top: 1px dotted #444;
+		}
+	}
+	
 
-	img{
-		width: 250px;
-		height: 250px;
+	.container-icon{
+		text-align: center;
 	}
-}
-.screenshot{
-	border-bottom: 1px dotted #444;
-	margin: 10px 0;
-	padding: 10px 0;
-	&:first-child{
-		border-top: 1px dotted #444;
-	}
-}
-input, textarea {
-	width: 400px;
-}
-textarea{
-	height: 100px;
 }
