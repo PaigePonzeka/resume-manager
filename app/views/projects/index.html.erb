@@ -20,7 +20,9 @@
 
   <% @projects.each do |project| %>
     <tr>
-      <td><%= project.icon %></td>
+      <td>
+        <img src="<%= project.icon %>" />
+      </td>
       <td><%= project.title %></td>
       <td><%= project.description %></td>
       <td>
