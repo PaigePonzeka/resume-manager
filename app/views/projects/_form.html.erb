@@ -32,7 +32,7 @@
   <div class="control-group">
     <%= f.label :description, :class => "control-label" %>
     <div class="controls">
-      <%= f.text_area :description, :rows=>5, :cols=>40 %>
+      <%= f.text_area :description %>
     </div>
   </div>
   <div class="control-group">
@@ -42,23 +42,29 @@
     </div>
 
     </div>
-  <ul class="control-group">
+    
+  <ul>
     <%= f.fields_for :project_screenshots do |ps| %>
-      <li>
-        <div class="field">
-          <%= ps.label :url %>
-          <%= ps.text_field :url %>
+      <li class="screenshot">
+        <div class="control-group">
+          <div class="screenshot-sample">
+            <p class="project-screenshot-container">
+              <img src=""/>
+            </p>
+          </div>
+          <%= ps.label :url, :class => "control-label" %>
+          <div class="controls"><%= ps.text_field :url, :class => "screenshot-url"%></div>
         </div>
 
-        <div class="field">
-          <%= ps.label :caption %>
-          <%= ps.text_area :caption%>
+        <div class="control-group">
+          <%= ps.label :caption, :class => "control-label" %>
+          <div class="controls"><%= ps.text_area :caption%></div>
         </div>
 
-         <div class="field">
+         <div class="control-group">
            <% if ps.object.persisted? %>
-              <%= ps.check_box :_destroy %>
-              <%= ps.label :_destroy, "Destroy" %>
+              <%= ps.label :_destroy, "Destroy", :class => "control-label" %>
+              <div class="controls"><%= ps.check_box :_destroy %></div>
             <% end %>
         </div>
 
@@ -66,7 +72,7 @@
 
     <% end %>
   </ul>
-  <div class="actions">
+  <div class="actions pull-right">
     <%= f.submit %>
   </div>
 <% end %>
