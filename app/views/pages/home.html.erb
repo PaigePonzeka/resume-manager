@@ -179,14 +179,53 @@
             <a class='section-link' name='work'></a>
             <h1>See What I've Done</h1>
            <div id="work-content"></div>
-            <script id="work-template" type="text/x-handlebars-template">
-               <ul id='work-list-filters'>
+            <ul id='work-list-filters'>
                  <li class='active'>
                   <a class='show-all' data-filter='*'>Show All</a>
                 </li>
-                {{#each tag}}
-                  <li><a class="work-list-filter-item-link {{toClassName this}}" data-filter=".{{toClassName this}}">{{this}}</a></li>
-                {{/each}}
+
+                <% Tag.find(:all).each do |tag| %>
+                   <li><a class="work-list-filter-item-link <%=toClassName(tag)%>" data-filter=".<%=toClassName(tag)%>"><%=tag.name %></a></li>
+                <% end %>
+              </ul>
+
+              <ul id='work-list'>
+                <% Project.find(:all).each do |project|%>
+                  
+                  <li class="work-list-item {{#each tags}}{{toClassName this}} {{/each}}" >
+                    <img class="work-list-item-icon" src="images/work/{{images.icon}}">
+                    <h3 class="work-list-item-title">{{title}}</h3>
+                    <p class="work-list-item-description">{{description}}</p>
+                    <div class="slider-wrapper theme-default">
+                      <div class="nivoSlider js-slider img-container">
+                          {{#each images.screenshots}}
+                            <img src="images/work/screenshots/{{image}}" alt="" title="{{description}}" data-transition="slideInLeft" />
+                          {{/each}}
+
+                      </div>
+
+                    </div>
+                    {{#if links}}
+
+                      <div class="work-list-item-links">
+
+                        <div class="work-list-item-links-expanded">
+                          <ul class="work-list-item-links-list">
+                            {{#each links}}
+                              <li> <a href="{{href}}" target="_blank">{{name}}</a></li>
+                            {{/each}}
+                          </ul>
+                        </div>
+                      </div>
+                    {{/if}}
+                    <ul class="work-list-item-tags">
+                      {{#each tags}}
+                        <li class="{{toClassName this}}">{{this}}</li>
+                      {{/each}}
+                      </ul>
+                    </li>
+                  {{/each}}
+                <% end %>
               </ul>
               <ul id='work-list'>
                 {{#each work}}
@@ -223,8 +262,8 @@
                       </ul>
                     </li>
                 {{/each}}
+                <% end %>
               </ul>
-            </script>
 
           </div>
         </section>
